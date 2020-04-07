@@ -61,7 +61,29 @@ jobs:
          # ln -s /mnt/openwrt/staging_dir ./staging_dir
         
     - name: 下载源码
-      run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt && cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a
+      run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+   
+    - name: 添加 Lienol 软件包
+      run: |
+        sed -i '$asrc-git lienol https://github.com/Lienol/openwrt-package' openwrt/feeds.conf.default
+    - name: 更新 feeds
+      run: |
+        cd openwrt && ./scripts/feeds update -a
+        rm -rf feeds/lienol/package/v2ray
+        rm -rf feeds/lienol/package/openssl1.1
+        rm -rf feeds/lienol/package/trojan
+        rm -rf feeds/lienol/package/ipt2socks
+        rm -rf feeds/lienol/package/shadowsocksr-libev
+        rm -rf feeds/lienol/package/pdnsd-alt
+        rm -rf package/lean/kcptun
+        rm -rf package/lean/verysync
+        rm -rf package/lean/luci-app-kodexplorer
+        rm -rf package/lean/luci-app-pppoe-relay
+        rm -rf package/lean/luci-app-pptp-server
+        rm -rf package/lean/luci-app-v2ray-server
+        rm -rf package/lean/luci-app-verysync
+    - name: 安装 feeds
+      run: cd openwrt && ./scripts/feeds install -a           
 
     - name: 导入自定义
       run: |
