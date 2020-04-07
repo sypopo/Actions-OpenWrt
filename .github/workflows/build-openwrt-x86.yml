@@ -44,21 +44,13 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
-        sudo swapoff /swapfile
-        sudo rm -rf /swapfile /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
-        sudo -E apt-get -qq update
-        sudo -E apt-get -qq install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs gcc-multilib g++-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler
-        sudo -E apt-get -qq autoremove --purge
-        sudo -E apt-get -qq clean     
-        
-         # 利用挂载在 /mnt/ 的 14G 额外空间:
-         # sudo mkdir -p -m 777 /mnt/openwrt/bin /mnt/openwrt/build_dir/host /mnt/openwrt/build_dir/hostpkg /mnt/openwrt/dl /mnt/openwrt/feeds /mnt/openwrt/staging_dir
-         # ln -s /mnt/openwrt/bin ./bin
-         # mkdir -p ./build_dir/host && ln -s /mnt/openwrt/build_dir/host ./build_dir/host
-         # mkdir -p ./build_dir/host && ln -s /mnt/openwrt/build_dir/hostpkg ./build_dir/hostpkg
-         # ln -s /mnt/openwrt/dl ./dl
-         # ln -s /mnt/openwrt/feeds ./feeds
-         # ln -s /mnt/openwrt/staging_dir ./staging_dir
+          sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d
+          sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
+          sudo -E apt-get -qq update
+          sudo -E apt-get -qq install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler
+          sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+          sudo -E apt-get -y autoremove --purge
+          sudo -E apt-get clean
         
     - name: 下载源码
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
