@@ -16,8 +16,8 @@ on:
 #     - master
 #   paths:
 #     - 'x86-1907'
-   schedule:
-     - cron: 0 19 * * *
+#   schedule:
+#     - cron: 0 19 * * *
   watch:
     types: started
   
