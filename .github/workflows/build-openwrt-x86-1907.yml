@@ -18,8 +18,8 @@ on:
 #     - 'x86-1907'
   schedule:
     - cron: 0 20 * * *
-  watch:
-    types: started
+#  watch:
+#    types: started
   
 env:
   REPO_URL: https://github.com/Lienol/openwrt
