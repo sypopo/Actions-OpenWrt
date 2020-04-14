@@ -18,15 +18,15 @@ on:
 #     - 'x86-1907'
   schedule:
     - cron: 0 20 * * *
-#  watch:
-#    types: started
+   watch:
+     types: started
   
 env:
   REPO_URL: https://github.com/Lienol/openwrt
   REPO_BRANCH: dev-19.07
   CONFIG_FILE: config-x86-1907
   DIY_SH: diy-x86-1907.sh
-  SSH_ACTIONS: true
+  SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
