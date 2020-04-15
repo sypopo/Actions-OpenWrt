@@ -26,7 +26,7 @@ env:
   REPO_BRANCH: master
   CONFIG_FILE: config-x86
   DIY_SH: diy-x86.sh
-  SSH_ACTIONS: false
+  SSH_ACTIONS: true
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
