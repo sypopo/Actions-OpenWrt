@@ -53,7 +53,7 @@ jobs:
           sudo -E apt-get clean
         
     - name: 下载源码
-      run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt && cd openwrt && ./scripts/feeds clean && ./scripts/feeds update -a && ./scripts/feeds install -a
+      run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt && cd openwrt && sed -i '5s/Lienol/sypopo/g' ./feeds.conf.default && ./scripts/feeds clean && ./scripts/feeds update -a && ./scripts/feeds install -a
 
     - name: 导入自定义
       run: |
@@ -63,7 +63,7 @@ jobs:
         df -h && pwd
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x $DIY_SH && cd openwrt && ../$DIY_SH && ./scripts/feeds update -a && ./scripts/feeds install -a
+        chmod +x $DIY_SH && cd openwrt && ../$DIY_SH
 
     - name: SSH连接
       uses: P3TERX/debugger-action@master
