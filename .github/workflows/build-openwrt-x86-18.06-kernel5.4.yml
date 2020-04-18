@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: OpenWrt-x86-1907
+name: OpenWrt-x86-5
 
 on:
 # release:
@@ -15,7 +15,7 @@ on:
 #   branches:
 #     - master
 #   paths:
-#     - 'x86-1907'
+#     - 'x86-5'
    schedule:
      - cron: 0 20 * * *
    watch:
