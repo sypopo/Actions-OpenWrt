@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: OpenWrt-x86-64
+name: OpenWrt-x86
 
 on:
 # release:
@@ -15,18 +15,18 @@ on:
 #   branches:
 #     - master
 #   paths:
-#     - 'x86'
+#     - 'openwrt'
    schedule:
-     - cron: 0 18 * * *
-#   watch:
-#     types: started
+     - cron: 0 17 * * *
+   watch:
+     types: started
   
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: master
-  CONFIG_FILE: config-x86
-  DIY_SH: diy-x86.sh
-  SSH_ACTIONS: false
+  REPO_URL: https://github.com/openwrt/openwrt
+  REPO_BRANCH: v19.07.2
+  CONFIG_FILE: config-x86-openwrt
+  DIY_SH: diy-x86-openwrt.sh
+  SSH_ACTIONS: true
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
@@ -53,8 +53,34 @@ jobs:
           sudo -E apt-get clean
         
     - name: 下载源码
-      run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt && cd openwrt && ./scripts/feeds clean && ./scripts/feeds update -a && ./scripts/feeds install -a
-   
+      run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+
+    - name: 下载 Lean Package
+      run: |
+          cd openwrt
+          sudo rm -rf package/lean
+          mkdir -p package/lean
+          svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean/ package/lean
+          sudo rm -rf package/lean/.svn/
+
+          mkdir -p tools/ucl && wget -P tools/ucl https://raw.githubusercontent.com/coolsnowwolf/lede/master/tools/ucl/Makefile 
+          mkdir -p tools/upx && wget -P tools/upx https://raw.githubusercontent.com/coolsnowwolf/lede/master/tools/upx/Makefile
+
+          sed  -i '/tools-$(CONFIG_TARGET_orion_generic)/atools-y += ucl upx' tools/Makefile
+          sed  -i '/dependencies/a\\$(curdir)/upx/compile := $(curdir)/ucl/compile' tools/Makefile
+
+    - name: 下载 Lienol Package
+      run: |
+          cd openwrt
+          echo "src-git sypopo https://github.com/Lienol/openwrt-package" >> feeds.conf.default
+
+      # 更新Feed
+    - name: Update Feeds
+      run: |
+          cd openwrt
+          ./scripts/feeds update -a
+          ./scripts/feeds install -a   
+ 
     - name: 导入自定义
       run: |
         git clone https://github.com/sypopo/diy ./openwrt/diy/sypopo
@@ -97,7 +123,7 @@ jobs:
       uses: actions/upload-artifact@master
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
-        name: OpenWrt_bin-x86-64
+        name: OpenWrt_bin-x86
         path: openwrt/bin
 
     - name: 固件打包
@@ -113,5 +139,5 @@ jobs:
       uses: actions/upload-artifact@master
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        name: OpenWrt-x86-64
+        name: OpenWrt-x86
         path: ${{ env.FIRMWARE }}
