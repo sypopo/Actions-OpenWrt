@@ -22,7 +22,7 @@ on:
      types: started
   
 env:
-  REPO_URL: https://github.com/openwrt/openwrt
+  REPO_URL: https://github.com/openwrt/openwrt.git
   REPO_BRANCH: master
   CONFIG_FILE: config-x86-openwrt
   DIY_SH: diy-x86-openwrt.sh
