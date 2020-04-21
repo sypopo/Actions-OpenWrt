@@ -14,8 +14,8 @@ on:
 #   push:
 #    branches:
 #     - master
-   paths:
-     - 'openwrt-x86'
+#   paths:
+#     - 'openwrt-x86'
    schedule:
      - cron: 0 17 * * *
 #   watch:
