@@ -11,9 +11,9 @@ name: OpenWrt-x86
 on:
 # release:
 #   types: published
-   push:
-    branches:
-     - master
+#   push:
+#    branches:
+#     - master
    paths:
      - 'openwrt-x86'
    schedule:
