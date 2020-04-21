@@ -45,5 +45,5 @@ DIY 脚本：[diy-x86-openwrt.sh](https://github.com/sypopo/diy/blob/master/diy-
 + DiskMan 磁盘管理
 + ZeroTier
 
-如需修改默认配置比如定制插件等，请编辑 `workflow` 文件，修改`SSH_ACTIONS`环境变量的值为`true`。在触发工作流程后，在 Actions 页面等待执行到SSH connection to Actions步骤，复制 SSH 连接命令粘贴到终端内，连接到 GitHub Ac­tions 虚拟服务器环境。执行：`cd openwrt && make menuconfig` 编译配置。
+如需修改默认配置比如定制插件等，请编辑 `workflow` 文件，修改`SSH_ACTIONS`环境变量的值`false`修改为`true`。在触发工作流程后，在 Actions 页面等待执行到SSH connection to Actions步骤，复制 SSH 连接命令粘贴到终端内，连接到 GitHub Ac­tions 虚拟服务器环境。执行：`cd openwrt && make menuconfig` 编译配置。
 
