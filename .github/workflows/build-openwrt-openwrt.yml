@@ -11,22 +11,22 @@ name: OpenWrt-x86
 on:
 # release:
 #   types: published
-# push:
-#   branches:
-#     - master
-#   paths:
-#     - 'openwrt-x86'
+   push:
+    branches:
+     - master
+   paths:
+     - 'openwrt-x86'
    schedule:
      - cron: 0 17 * * *
-   watch:
-     types: started
+#   watch:
+#     types: started
   
 env:
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: openwrt-19.07
   CONFIG_FILE: config-x86-openwrt
   DIY_SH: diy-x86-openwrt.sh
-  SSH_ACTIONS: true
+  SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
