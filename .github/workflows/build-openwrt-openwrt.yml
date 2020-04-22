@@ -18,8 +18,8 @@ on:
 #     - 'openwrt-x86'
    schedule:
      - cron: 0 17 * * *
-#   watch:
-#     types: started
+   watch:
+     types: started
   
 env:
   REPO_URL: https://github.com/openwrt/openwrt
