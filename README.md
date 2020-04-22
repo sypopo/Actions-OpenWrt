@@ -38,10 +38,11 @@ DIY 脚本：[diy-x86-openwrt.sh](https://github.com/sypopo/diy/blob/master/diy-
 + OpenClash
 + Frp内网穿透
 + 微信推送
++ Aria2
 + 网易云音乐解锁
 + 硬盘休眠
-+ Aria2
 + 网络共享
++ 网络唤醒
 + DiskMan 磁盘管理
 + ZeroTier
 
