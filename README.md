@@ -11,6 +11,23 @@ config：[config-x86-Lean](https://github.com/sypopo/diy/blob/master/config-x86-
 
 DIY 脚本：[diy-x86-Lean.sh](https://github.com/sypopo/diy/blob/master/diy-x86-Lean.sh)
 
+
+##### 默认登陆:192.168.5.1, 密码:无
+
+##### 默认插件包含:
+
++ SSR Plus
++ OpenClash
++ Frps
++ 微信推送
++ Aria2
++ 硬盘休眠
++ 网络共享
++ 磁盘管理
++ ZeroTier
++ UPnP
++ 带宽监控
+
 #### Lienol-openwrt
 [Lienol源码](https://github.com/Lienol/openwrt)  构建的 x86_64 固件. 
 
@@ -27,7 +44,7 @@ DIY 脚本：[diy-x86-Lienol.sh](https://github.com/sypopo/diy/blob/master/diy-x
 + SSR Plus
 + PassWall
 + OpenClash
-+ Frp内网穿透
++ Frp 内网穿透
 + 微信推送
 + Aria2
 + 网易云音乐解锁
@@ -36,6 +53,7 @@ DIY 脚本：[diy-x86-Lienol.sh](https://github.com/sypopo/diy/blob/master/diy-x
 + 网络唤醒
 + DiskMan 磁盘管理
 + ZeroTier
++ 带宽监控
 
 #### openwrt
 [官方源码](https://github.com/openwrt/openwrt)   构建的 x86_64 固件.  
