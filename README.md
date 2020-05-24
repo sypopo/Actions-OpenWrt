@@ -20,9 +20,9 @@ config：[config-x86-Lienol](https://github.com/sypopo/diy/blob/master/config-x8
 
 DIY 脚本：[diy-x86-Lienol.sh](https://github.com/sypopo/diy/blob/master/diy-x86-Lienol.sh)
 
-## 默认登陆:192.168.2.1, 密码:无
+#### 默认登陆:192.168.2.1, 密码:无
 
-## 默认插件包含:
+#### 默认插件包含:
 
 + SSR Plus
 + PassWall
