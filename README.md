@@ -1,8 +1,8 @@
 # Actions-OpenWrt
 
-### 本项目包含3个构建Action
+## 本项目包含3个构建Action
 
-#### lean-openwrt
+### lean-openwrt
 [lean源码](https://github.com/coolsnowwolf/lede) 构建的 x86_64 固件. 
 
 workflows: [build-openwrt-Lean.yml](https://github.com/sypopo/Actions-OpenWrt/blob/master/.github/workflows/build-openwrt-Lean.yml)
@@ -28,7 +28,7 @@ DIY 脚本：[diy-x86-Lean.sh](https://github.com/sypopo/diy/blob/master/diy-x86
 + UPnP
 + 带宽监控
 
-#### Lienol-openwrt
+### Lienol-openwrt
 [Lienol源码](https://github.com/Lienol/openwrt)  构建的 x86_64 固件. 
 
 workflows: [build-openwrt-Lienol](https://github.com/sypopo/Actions-OpenWrt/blob/master/.github/workflows/build-openwrt-Lienol.yml)
@@ -55,7 +55,7 @@ DIY 脚本：[diy-x86-Lienol.sh](https://github.com/sypopo/diy/blob/master/diy-x
 + ZeroTier
 + 带宽监控
 
-#### openwrt
+### openwrt
 [官方源码](https://github.com/openwrt/openwrt)   构建的 x86_64 固件.  
 
 workflows: [build-openwrt-openwrt.yml](https://github.com/sypopo/Actions-OpenWrt/blob/master/.github/workflows/build-openwrt-openwrt.yml)
