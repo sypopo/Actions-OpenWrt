@@ -23,7 +23,7 @@ on:
   
 env:
   REPO_URL: https://github.com/Lienol/openwrt
-  REPO_BRANCH: dev-19.07-5.4
+  REPO_BRANCH: dev-master
   CONFIG_FILE: config-x86-Lienol
   DIY_SH: diy-x86-Lienol.sh
   SSH_ACTIONS: false
