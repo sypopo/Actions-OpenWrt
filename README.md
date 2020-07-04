@@ -41,7 +41,6 @@ DIY 脚本：[diy-x86-Lienol.sh](https://github.com/sypopo/diy/blob/master/diy-x
 
 ##### 默认插件包含:
 
-+ SSR Plus
 + PassWall
 + OpenClash
 + Frp 内网穿透
