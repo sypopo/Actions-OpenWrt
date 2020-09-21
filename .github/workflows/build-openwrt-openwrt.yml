@@ -16,8 +16,8 @@ on:
 #     - master
 #   paths:
 #     - 'openwrt-x86'
-   schedule:
-     - cron: 0 17 * * *
+#  schedule:
+#    - cron: 0 17 * * *
 #   watch:
 #     types: started
   
