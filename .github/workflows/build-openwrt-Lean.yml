@@ -100,7 +100,7 @@ jobs:
         name: OpenWrt_bin-x86-Lean
         path: openwrt/bin
 
-    - name: 固件打包
+    - name: 固件打包 
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
