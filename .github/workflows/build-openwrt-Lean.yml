@@ -14,7 +14,7 @@ release:
 push:
   branches:
     - master
-  paths:
+   paths:
      - 'Lean'
    schedule:
      - cron: 0 18 * * *
