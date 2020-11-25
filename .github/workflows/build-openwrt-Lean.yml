@@ -1,3 +1,34 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@aiyboy 
+sypopo
+/
+Actions-OpenWrt
+1
+512
+Code
+Issues
+Pull requests
+1
+Actions
+Projects
+Wiki
+Security
+Insights
+Actions-OpenWrt/.github/workflows/build-openwrt-Lean.yml
+@sypopo
+sypopo Update build-openwrt-Lean.yml
+Latest commit 480fc8d on 20 Sep
+ History
+ 1 contributor
+117 lines (103 sloc)  3.83 KB
+  
 #=================================================
 # https://github.com/P3TERX/Actions-OpenWrt
 # Description: Build OpenWrt using GitHub Actions
@@ -9,17 +40,17 @@
 name: build-openwrt-Lean
 
 on:
-release:
-  types: published
-push:
-  branches:
-    - master
+# release:
+#   types: published
+ push:
+   branches:
+     - master
    paths:
      - 'Lean'
    schedule:
      - cron: 0 18 * * *
-  watch:
-    types: started
+#   watch:
+#     types: started
   
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -64,9 +95,8 @@ jobs:
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_SH && cd openwrt && ../$DIY_SH
-
     - name: SSH连接
-      uses: P3TERX/debugger-action@master
+      uses: sypopo/debugger-action@master
       if: env.SSH_ACTIONS == 'true'
         
     - name: 下载软件包
@@ -100,7 +130,7 @@ jobs:
         name: OpenWrt_bin-x86-Lean
         path: openwrt/bin
 
-    - name: 固件打包 
+    - name: 固件打包
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
@@ -108,10 +138,21 @@ jobs:
         rm -rf packages
         echo "::set-env name=FIRMWARE::$PWD"
         echo "::set-output name=status::success"
-
     - name: 上传固件
       uses: actions/upload-artifact@master
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
         name: OpenWrt-x86-Lean
         path: ${{ env.FIRMWARE }}
+© 2020 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
