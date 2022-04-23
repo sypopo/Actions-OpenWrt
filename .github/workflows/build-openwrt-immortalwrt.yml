@@ -25,7 +25,6 @@ env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: openwrt-21.02
   CONFIG_FILE: config-x86-immortalwrt
-  DIY_SH: diy-x86-immortalwrt.sh
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
@@ -58,11 +57,9 @@ jobs:
       run: |
         git clone https://github.com/sypopo/diy ./openwrt/diy/sypopo
         mv ./openwrt/diy/sypopo/$CONFIG_FILE $(pwd)
-        mv ./openwrt/diy/sypopo/$DIY_SH $(pwd)
         df -h && pwd
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x $DIY_SH && cd openwrt && ../$DIY_SH
     - name: SSH连接
       uses: sypopo/debugger-action@master
       if: env.SSH_ACTIONS == 'true'
