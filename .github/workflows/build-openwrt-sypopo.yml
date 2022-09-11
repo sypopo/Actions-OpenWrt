@@ -114,5 +114,5 @@ jobs:
       uses: actions/upload-artifact@master
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        name: OpenWrt-x86-Lean
+        name: OpenWrt-x86-sypopo
         path: ${{ env.FIRMWARE }}
