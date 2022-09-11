@@ -26,7 +26,7 @@ env:
   REPO_BRANCH: master
   CONFIG_FILE: config-x86-sypopo
   DIY_SH: diy-x86-sypopo.sh
-  SSH_ACTIONS:  true
+  SSH_ACTIONS:  false
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
