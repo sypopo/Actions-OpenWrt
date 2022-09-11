@@ -24,8 +24,8 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  CONFIG_FILE: config-x86-Lean
-  DIY_SH: diy-x86-Lean.sh
+  CONFIG_FILE: config-x86-sypopo
+  DIY_SH: sypopo-Lean.sh
   SSH_ACTIONS:  false
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
