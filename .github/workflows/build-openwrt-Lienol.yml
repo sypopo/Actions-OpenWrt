@@ -16,8 +16,8 @@ on:
 #     - master
 #   paths:
 #     - 'Lienol'
-#   schedule:
-#     - cron: 0 20 * * *
+   schedule:
+     - cron: 0 20 1 * *
 #   watch:
 #     types: started
   
