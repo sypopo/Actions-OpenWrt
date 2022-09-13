@@ -17,7 +17,7 @@ on:
 #   paths:
 #     - 'Lean'
    schedule:
-     - cron: 1 18 * * *
+     - cron: 30 16 * * *
    watch:
      types: started
   
