@@ -37,10 +37,12 @@ jobs:
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
-      - name: 项目初始
+      # 项目初始
+      - name: Code Checkout
         uses: actions/checkout@main
 
-      - name: 初始环境
+      # 初始环境
+      - name: Initialize Environment
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
