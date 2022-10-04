@@ -9,6 +9,8 @@
 name: OpenWrt-x86-Lienol
 
 on:
+  workflow_dispatch:
+  repository_dispatch:
 # release:
 #   types: published
 # push:
@@ -18,8 +20,8 @@ on:
 #     - 'Lienol'
    schedule:
      - cron: 0 20 1 * *
-   watch:
-     types: started
+#   watch:
+#     types: started
   
 env:
   REPO_URL: https://github.com/Lienol/openwrt
