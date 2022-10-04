@@ -9,6 +9,8 @@
 name: build-openwrt-Lean
 
 on:
+  workflow_dispatch:
+  repository_dispatch:
 # release:
 #   types: published
 # push:
@@ -18,8 +20,8 @@ on:
 #     - 'Lean'
    schedule:
      - cron: 0 18 * * *
-   watch:
-     types: started
+#   watch:
+#     types: started
   
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
