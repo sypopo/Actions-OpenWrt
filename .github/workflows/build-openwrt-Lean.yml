@@ -28,7 +28,7 @@ env:
   REPO_BRANCH: master
   CONFIG_FILE: config-x86-Lean
   DIY_SH: diy-x86-Lean.sh
-  SSH_ACTIONS:  true
+  SSH_ACTIONS:  false
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
