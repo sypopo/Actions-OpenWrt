@@ -95,7 +95,7 @@ jobs:
         cd openwrt
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j1 V=s
-        echo "::set-output name=status::success"
+        echo "status=success" >> $GITHUB_OUTPUT
         echo "======================="
         echo "Space usage:"
         echo "======================="
@@ -122,7 +122,7 @@ jobs:
         cd openwrt/bin/targets/*/*
         rm -rf packages *rootfs* *vmlinuz *info *fest
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
-        echo "::set-output name=status::success"
+        echo "status=success" >> $GITHUB_OUTPUT
 
     - name: 上传固件
       uses: actions/upload-artifact@master
